@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -32,10 +33,7 @@ public class NGUIColorPicker : MonoBehaviour
     {
         Vector3 textureWheelPos = UICamera.currentCamera.WorldToScreenPoint(transform.position);
         Vector2 pos = UICamera.lastTouchPosition - new Vector2(textureWheelPos.x, textureWheelPos.y);
-        //Debug.Log(pos);
         _colorValue = ColorTexture.GetPixel(Mathf.FloorToInt(pos.x) + ColorTexture.width / 2, Mathf.FloorToInt(pos.y) + ColorTexture.height / 2);
         ColorMaterial.color = _colorValue;
-
-        //GameObject.Find("Controller").SendMessage("SetColor", ColorValue);
     }
 }
